@@ -48,9 +48,13 @@ export default class FicheFilm extends Component {
 						style={{width: 150, height: 220}}
 						source={{uri: `https://image.tmdb.org/t/p/w600_and_h900_bestv2${this.state.film.poster_path}`}}
 					/>
+					<Text>Original Title : {this.state.film.original_title}</Text>
+					<Text style={{paddingTop: 10}}>Release Date : {this.state.film.release_date}</Text>
 				</View>
 				<View style={styles.container} >
 				<Text style={{paddingVertical: 10, paddingHorizontal: 10}}>{this.state.film.overview}</Text>
+				<Text>Budget : {this.state.film.budget}$</Text>
+				<Text style={{paddingBottom : 10}}>Revenue : {this.state.film.revenue}$</Text>
 				<WebView
 					style={{flex:1, width : 350, height: 200}}
 					javaScriptEnabled={true}
