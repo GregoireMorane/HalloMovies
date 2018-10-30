@@ -6,39 +6,28 @@ import { StyleSheet,
   TextInput,
   ScrollView
 } from 'react-native';
+import ListFilm from './ListFilm';
 
 export default class App extends React.Component {
-  constructor(){
+  constructor() {
     super()
     this.state = {
-      userInput: '',
-      finalSearch: null,
+      listFilm: false
     }
   }
-  searchBarDisplay = (event) => {
-    console.log("searchbar",event)
-    this.setState({userInput: event})
-  }
   handleSubmit = (event) => {
-    this.setState({finalSearch: event})
-    this.setState({userInput: event})
+    this.setState({listFilm:true})
   }
   render() {
-    console.log("final", this.state.finalSearch)
-    console.log("userInput", this.state.userInput)
+    if(this.state.listFilm === true)
+      return <ListFilm />
     return (
       <ScrollView contentContainerStyle={styles.contentContainer}>
           <View style={styles.container}>
             <Text style={styles.textH}>HalloMovies</Text>
-            <TextInput
-                style={styles.searchbar}
-                placeholder="Your Film..."
-                value={this.state.userInput}
-                onChangeText={(text) => this.searchBarDisplay(text)}
-            />
             <Button title="Go !" onPress={() => this.handleSubmit(this.state.userInput)} />
           </View>
-        </ScrollView>
+      </ScrollView>
     );
   }
 }
