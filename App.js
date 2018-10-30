@@ -24,8 +24,6 @@ export default class App extends React.Component {
     this.setState({userInput: event})
   }
   render() {
-    console.log("final", this.state.finalSearch)
-    console.log("userInput", this.state.userInput)
     return (
       <ScrollView contentContainerStyle={styles.contentContainer}>
           <View style={styles.container}>
@@ -61,8 +59,8 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
 	contentContainer: {
-    flex: 1,
-    paddingVertical: 20,
+    // flex: 1,
+    paddingVertical: 150,
     alignItems: 'center',
     justifyContent: 'center',
   },
