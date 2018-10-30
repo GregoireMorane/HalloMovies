@@ -1,12 +1,34 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, 
+  Text, 
+  View,
+  Button,
+  TextInput,
+  ScrollView,
+  Image
+} from 'react-native';
+import ListFilm from './ListFilm';
 
 export default class App extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      listFilm: false
+    }
+  }
+  handleSubmit = (event) => {
+    this.setState({listFilm:true})
+  }
   render() {
+    if(this.state.listFilm === true)
+      return <ListFilm />
     return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-      </View>
+      <ScrollView contentContainerStyle={styles.contentContainer}>
+          <View style={styles.container}>
+            <Image style={{height: 240, width: 300}} source={require('./logo_hackaton.png')} />
+            <Button title="Go !" onPress={() => this.handleSubmit(this.state.userInput)} />
+          </View>
+      </ScrollView>
     );
   }
 }
@@ -18,4 +40,24 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  button: {
+    backgroundColor: '#DDDDDD',
+    padding: 10,
+  },
+  searchbar: {
+    padding: 20,
+    //backgroundColor: '#3399FF',
+    width: 300,
+    textAlign: "center",
+  },
+	contentContainer: {
+    flex: 1,
+    paddingVertical: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  textH: {
+    fontSize: 40,
+    fontWeight: 'bold',
+  }
 });
