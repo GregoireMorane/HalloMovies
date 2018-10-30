@@ -4,9 +4,11 @@ import { StyleSheet,
 	View,
 	ScrollView,
 	Button,
-	Image
+	Image,
+	TouchableHighlight
 	} from 'react-native';
 	import App from './App';
+import FicheFilm from './FicheFilm';
 
 export default class ListFilm extends Component {
 	constructor(){
@@ -14,10 +16,12 @@ export default class ListFilm extends Component {
 		this.state = {
 			list : null,
 			renderApp : false,
+			renderFicheFilm : true,
+			index : null,
 		}
 	}
 	componentDidMount(){
-		let rand = Math.floor((Math.random() * 270) + 1);
+		let rand = Math.floor((Math.random() * 100) + 1);
 		fetch(`https://api.themoviedb.org/3/discover/movie?with_genres=27&api_key=fe92e01fc7f7de2e7bb39a4066baf3c3&page=${rand}`)
 			.then(resp => resp.json())
 			.then(resp => this.setState({ list : resp.results }))
@@ -25,13 +29,18 @@ export default class ListFilm extends Component {
 	handleClickRenderApp = () => {
 		this.setState({renderApp : true})
 	}
+	handleClickRenderFicheFilm = (event) => {
+		this.setState({renderFicheFilm : true})
+		this.setState({index : event})
+	}
 	render(){
 		if(this.state.list === null)
 			return <Text>loading...</Text>
 		//console.log("resp", this.state.list[0].title)
 		if(this.state.renderApp === true)
 			return <App />
-
+		if(this.state.renderFicheFilm === true && this.state.index !== null)
+			return <FicheFilm filmId={this.state.list[this.state.index].id}/>
 		return(
 			<ScrollView contentContainerStyle={styles.contentContainer}>
           		<View style={styles.container}>
@@ -41,10 +50,12 @@ export default class ListFilm extends Component {
 						(element, i) =>
 							<View key={i} style={styles.container}>
 								<Text style={styles.textTitleFilm}>{element.title}</Text>
-								<Image
-									style={{width: 150, height: 220}}
-									source={{uri: `https://image.tmdb.org/t/p/w600_and_h900_bestv2${element.poster_path}`}}
-								/>
+								<TouchableHighlight onPress={() => this.handleClickRenderFicheFilm(i)}>
+									<Image
+										style={{width: 150, height: 220}}
+										source={{uri: `https://image.tmdb.org/t/p/w600_and_h900_bestv2${element.poster_path}`}}
+									/>
+								</TouchableHighlight>
 							</View>
 					)}
 					</View>
