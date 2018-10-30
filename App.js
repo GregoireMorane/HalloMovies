@@ -16,7 +16,7 @@ export default class App extends React.Component {
       listFilm: false
     }
   }
-  handleSubmit = (event) => {
+  handleSubmit = () => {
     this.setState({listFilm:true})
   }
   render() {
@@ -26,7 +26,7 @@ export default class App extends React.Component {
       <ScrollView contentContainerStyle={styles.contentContainer}>
           <View style={styles.container}>
             <Image style={{height: 240, width: 300}} source={require('./logo_hackaton.png')} />
-            <Button title="Go !" onPress={() => this.handleSubmit(this.state.userInput)} />
+            <Button title="Go !" onPress={() => this.handleSubmit()} />
           </View>
       </ScrollView>
     );
