@@ -44,9 +44,13 @@ export default class FicheFilm extends Component {
 				<View style={styles.container} >
 					<Text style={styles.textH} onPress={() => this.handleClickRenderApp()}>HalloMovies</Text>
 					<Text style={styles.textTitle}>{this.state.film.title}</Text>
+					<Image
+						style={{width: 150, height: 220}}
+						source={{uri: `https://image.tmdb.org/t/p/w600_and_h900_bestv2${this.state.film.poster_path}`}}
+					/>
 				</View>
 				<View style={styles.container} >
-				<Text>{this.state.film.overview}</Text>
+				<Text style={{paddingVertical: 10, paddingHorizontal: 10}}>{this.state.film.overview}</Text>
 				<WebView
 					style={{flex:1, width : 350, height: 200}}
 					javaScriptEnabled={true}

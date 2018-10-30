@@ -21,7 +21,7 @@ export default class ListFilm extends Component {
 		}
 	}
 	componentDidMount(){
-		let rand = Math.floor((Math.random() * 270) + 1);
+		let rand = Math.floor((Math.random() * 100) + 1);
 		fetch(`https://api.themoviedb.org/3/discover/movie?with_genres=27&api_key=fe92e01fc7f7de2e7bb39a4066baf3c3&page=${rand}`)
 			.then(resp => resp.json())
 			.then(resp => this.setState({ list : resp.results }))
