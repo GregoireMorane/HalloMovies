@@ -4,7 +4,8 @@ import { StyleSheet,
   View,
   Button,
   TextInput,
-  ScrollView
+  ScrollView,
+  Image
 } from 'react-native';
 import ListFilm from './ListFilm';
 
@@ -24,7 +25,7 @@ export default class App extends React.Component {
     return (
       <ScrollView contentContainerStyle={styles.contentContainer}>
           <View style={styles.container}>
-            <Text style={styles.textH}>HalloMovies</Text>
+            <Image style={{height: 240, width: 300}} source={require('./logo_hackaton.png')} />
             <Button title="Go !" onPress={() => this.handleSubmit(this.state.userInput)} />
           </View>
       </ScrollView>
