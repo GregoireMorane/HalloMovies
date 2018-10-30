@@ -15,12 +15,17 @@ export default class App extends React.Component {
       finalSearch: null,
     }
   }
+  searchBarDisplay = (event) => {
+    console.log("searchbar",event)
+    this.setState({userInput: event})
+  }
   handleSubmit = (event) => {
     this.setState({finalSearch: event})
     this.setState({userInput: event})
-    console.log('submit', this.state)
   }
   render() {
+    console.log("final", this.state.finalSearch)
+    console.log("userInput", this.state.userInput)
     return (
       <ScrollView contentContainerStyle={styles.contentContainer}>
           <View style={styles.container}>
@@ -29,6 +34,7 @@ export default class App extends React.Component {
                 style={styles.searchbar}
                 placeholder="Your Film..."
                 value={this.state.userInput}
+                onChangeText={(text) => this.searchBarDisplay(text)}
             />
             <Button title="Go !" onPress={() => this.handleSubmit(this.state.userInput)} />
           </View>
