@@ -26,7 +26,7 @@ export default class App extends React.Component {
       <ScrollView contentContainerStyle={styles.contentContainer}>
           <View style={styles.container}>
             <Image style={{height: 240, width: 300}} source={require('./logo_hackaton.png')} />
-            <Button title="Go !" onPress={() => this.handleSubmit()} />
+            <Button title="FILMS DE MERDE EN APPROCHE !" onPress={() => this.handleSubmit()} />
           </View>
       </ScrollView>
     );
