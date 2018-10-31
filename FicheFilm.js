@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
 	},
 
 	contentContainer: {
-		paddingVertical: 20,
+		//paddingVertical: 20,
 	},
 
 	textH: {

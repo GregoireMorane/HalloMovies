@@ -100,12 +100,13 @@ const styles = StyleSheet.create({
 	  textAlign: "center",
 	},
 	contentContainer: {
-		paddingVertical: 20,
+		//paddingVertical: 20,
 	},
 	textH: {
 	  color:'orangered',
 	  fontSize: 40,
 	  fontWeight: 'bold',
+	  paddingVertical:20,
 	},
 	textButton: {
 		color: 'white',
