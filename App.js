@@ -35,7 +35,7 @@ export default class App extends React.Component {
                     marginLeft :50,
                     marginRight:50,
                     marginTop :20,
-                    backgroundColor:'orangered',
+                    backgroundColor:'#DF6D14',
                     borderRadius: 100
                 }}>
             <Text style={{color:'white',marginRight:'auto',marginLeft:'auto',marginTop:'auto',marginBottom:'auto',fontSize:20}}>
@@ -43,26 +43,24 @@ export default class App extends React.Component {
               </Text>
            </TouchableOpacity>
           </View>
-
+          
       </ScrollView>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  
   container: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
   },
-
+ 
+  
 	contentContainer: {
-<<<<<<< HEAD
+
     backgroundColor:'#000',
-=======
-    backgroundColor: '#000',
-    paddingVertical: 107,
->>>>>>> e48ef0e6627a50b09a2c8c5d365ea3274e8becbd
     alignItems: 'center',
     justifyContent: 'center',
   },

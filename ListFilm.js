@@ -3,7 +3,7 @@ import { StyleSheet,
 	Text, 
 	View,
 	ScrollView,
-	Button,
+	TouchableOpacity,
 	Image,
 	TouchableHighlight
 	} from 'react-native';
@@ -61,7 +61,18 @@ export default class ListFilm extends Component {
 										source={{uri: `https://image.tmdb.org/t/p/w600_and_h900_bestv2${element.poster_path}`}}
 									/>
 								</TouchableHighlight>
-								<Button style={styles.textButton} title="CLIQUE ICI POUR + DE FILMS DE MERDE" onPress={() => this.handleSubmit()} />
+								<TouchableOpacity onPress={() => this.handleSubmit()}
+										style ={{
+											height: 50,
+											width:250,
+											marginLeft :50,
+											marginRight:50,
+											marginTop :20,
+											backgroundColor:'#DF6D14',
+											borderRadius: 100
+										}}>
+								<Text style={{color:'white',marginRight:'auto',marginLeft:'auto',marginTop:'auto',marginBottom:'auto',fontSize:15}}>CLIQUE ICI POUR PLUS DE FILMS</Text>
+								</TouchableOpacity>
 							</View>
 					)}
 					</View>
