@@ -59,8 +59,7 @@ const styles = StyleSheet.create({
  
   
 	contentContainer: {
-    backgroundColor: '#000',
-    paddingVertical: 50,
+    backgroundColor:'#000',
     alignItems: 'center',
     justifyContent: 'center',
   },
