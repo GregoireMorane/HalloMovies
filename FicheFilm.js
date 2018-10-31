@@ -52,11 +52,10 @@ export default class FicheFilm extends Component {
 					<Text style={{paddingTop: 10}}>Release Date : {this.state.film.release_date}</Text>
 				</View>
 				<View style={styles.container} >
-					<Text style={{paddingVertical: 10, paddingHorizontal: 10}}>{this.state.film.overview}</Text>
-					<Text>Budget : {this.state.film.budget}$</Text>
-					<Text style={{paddingBottom : 10}}>Revenue : {this.state.film.revenue}$</Text>
-					<WebView
-						style={{flex:1, width : 350, height: 200}}
+					<Text style={styles.overview}>{this.state.film.overview}</Text>
+					<Text style={styles.budget}> Budget :{this.state.film.budget}$</Text>
+					<Text style={styles.revenue}> Revenue : {this.state.film.revenue}$</Text>
+					<WebView style={styles.youtube}
 						javaScriptEnabled={true}
 						source={{uri: `https://www.youtube.com/embed/${this.state.trailer[0].key}?rel=0&autoplay=0&showinfo=0&controls=0`}}
 					/>
@@ -69,26 +68,55 @@ export default class FicheFilm extends Component {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: '#fff',
+		backgroundColor: 'black',
 		alignItems: 'center',
 		justifyContent: 'center',
 	},
+
 	contentContainer: {
 		paddingVertical: 20,
 	},
+
 	textH: {
 		fontSize: 40,
+		color: 'orangered',
 		fontWeight: 'bold',
 		paddingVertical: 30,
 	},
+
 	textNameFilm: {
 		paddingVertical: 10,
+		color: 'white',
 		fontSize: 20,
 		fontWeight: 'bold',
 	},
+
 	textTitle:{
 		paddingVertical: 20,
+		color: 'white',
 		fontSize: 30,
 		fontWeight: 'bold',
-	}
+	},
+
+	budget:{
+		color: 'white',
+		paddingBottom: 10,
+	},
+
+	overview:{
+		color: 'white',
+		paddingVertical: 15,
+		paddingHorizontal: 40,
+	},
+
+	revenue:{
+		color: 'white',
+		paddingBottom: 18,
+	},
+
+	youtube:{
+		flex:1,
+		width : 350,
+		height: 200,
+	},
 });
