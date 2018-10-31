@@ -55,13 +55,13 @@ export default class ListFilm extends Component {
 						(element, i) =>
 							<View key={i} style={styles.container}>
 								<Text style={styles.textTitleFilm}>{element.title}</Text>
-								<TouchableHighlight onPress={() => this.handleClickRenderFicheFilm(i)}>
+								<TouchableHighlight style={{paddingBottom:20}} onPress={() => this.handleClickRenderFicheFilm(i)}>
 									<Image
 										style={{width: 150, height: 220}}
 										source={{uri: `https://image.tmdb.org/t/p/w600_and_h900_bestv2${element.poster_path}`}}
 									/>
 								</TouchableHighlight>
-								<Button title="ENCORE ET ENCORE PLUS DE FILMS DE MERDE" onPress={() => this.handleSubmit()} />
+								<Button  title="ENCORE ET ENCORE PLUS DE FILMS DE MERDE" onPress={() => this.handleSubmit()} />
 							</View>
 					)}
 					</View>
