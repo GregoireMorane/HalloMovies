@@ -3,7 +3,7 @@ import { StyleSheet,
 	Text, 
 	View,
 	ScrollView,
-	Button,
+	TouchableOpacity,
 	Image,
 	TouchableHighlight
 	} from 'react-native';
@@ -33,12 +33,17 @@ export default class ListFilm extends Component {
 		this.setState({renderFicheFilm : true})
 		this.setState({index : event})
 	}
+	handleSubmit = () => {
+		this.setState({listFilm:true})
+	}
 	render(){
 		if(this.state.list === null)
 			return <Text>loading...</Text>
 		//console.log("resp", this.state.list[0].title)
 		if(this.state.renderApp === true)
 			return <App />
+		if(this.state.listFilm === true)
+			return <ListFilm />
 		if(this.state.renderFicheFilm === true && this.state.index !== null)
 			return <FicheFilm filmId={this.state.list[this.state.index].id}/>
 		return(
@@ -50,12 +55,24 @@ export default class ListFilm extends Component {
 						(element, i) =>
 							<View key={i} style={styles.container}>
 								<Text style={styles.textTitleFilm}>{element.title}</Text>
-								<TouchableHighlight onPress={() => this.handleClickRenderFicheFilm(i)}>
+								<TouchableHighlight style={{paddingBottom:20}} onPress={() => this.handleClickRenderFicheFilm(i)}>
 									<Image
 										style={{width: 150, height: 220}}
 										source={{uri: `https://image.tmdb.org/t/p/w600_and_h900_bestv2${element.poster_path}`}}
 									/>
 								</TouchableHighlight>
+								<TouchableOpacity onPress={() => this.handleSubmit()}
+										style ={{
+											height: 50,
+											width:250,
+											marginLeft :50,
+											marginRight:50,
+											marginTop :20,
+											backgroundColor:'#DF6D14',
+											borderRadius: 100
+										}}>
+								<Text style={{color:'white',marginRight:'auto',marginLeft:'auto',marginTop:'auto',marginBottom:'auto',fontSize:15}}>CLIQUE ICI POUR PLUS DE FILMS</Text>
+								</TouchableOpacity>
 							</View>
 					)}
 					</View>
@@ -68,7 +85,7 @@ export default class ListFilm extends Component {
 const styles = StyleSheet.create({
 	container: {
 	  flex: 1,
-	  backgroundColor: '#fff',
+	  backgroundColor: 'black',
 	  alignItems: 'center',
 	  justifyContent: 'center',
 	},
@@ -83,13 +100,20 @@ const styles = StyleSheet.create({
 	  textAlign: "center",
 	},
 	contentContainer: {
-		paddingVertical: 20,
+		//paddingVertical: 20,
 	},
 	textH: {
+	  color:'orangered',
 	  fontSize: 40,
 	  fontWeight: 'bold',
+	  paddingVertical:20,
+	},
+	textButton: {
+		color: 'white',
+		paddingHorizontal:20
 	},
 	textTitleFilm: {
+		color:'orangered',
 		paddingVertical: 20,
 		fontSize: 20,
 		fontWeight: 'bold',

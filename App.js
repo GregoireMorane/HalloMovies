@@ -4,6 +4,7 @@ import { StyleSheet,
   View,
   Button,
   TextInput,
+  TouchableOpacity,
   ScrollView,
   Image
 } from 'react-native';
@@ -16,7 +17,7 @@ export default class App extends React.Component {
       listFilm: false
     }
   }
-  handleSubmit = (event) => {
+  handleSubmit = () => {
     this.setState({listFilm:true})
   }
   render() {
@@ -24,37 +25,45 @@ export default class App extends React.Component {
       return <ListFilm />
     return (
       <ScrollView contentContainerStyle={styles.contentContainer}>
+        <Image style={{height: 240, width: 300}} source={require('./Toile_d_araignée.png')} />
           <View style={styles.container}>
             <Image style={{height: 240, width: 300}} source={require('./logo_hackaton.png')} />
-            <Button title="Go !" onPress={() => this.handleSubmit(this.state.userInput)} />
+            <TouchableOpacity onPress={() => this.handleSubmit()}
+                style ={{
+                    height: 100,
+                    width:250,
+                    marginLeft :50,
+                    marginRight:50,
+                    marginTop :20,
+                    backgroundColor:'#DF6D14',
+                    borderRadius: 100
+                }}>
+            <Text style={{color:'white',marginRight:'auto',marginLeft:'auto',marginTop:'auto',marginBottom:'auto',fontSize:20}}>
+            Vas y clique, tu verras ...
+              </Text>
+           </TouchableOpacity>
           </View>
+          
       </ScrollView>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  
   container: {
     flex: 1,
-    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
   },
-  button: {
-    backgroundColor: '#DDDDDD',
-    padding: 10,
-  },
-  searchbar: {
-    padding: 20,
-    //backgroundColor: '#3399FF',
-    width: 300,
-    textAlign: "center",
-  },
+ 
+  
 	contentContainer: {
-    flex: 1,
-    paddingVertical: 20,
+
+    backgroundColor:'#000',
     alignItems: 'center',
     justifyContent: 'center',
+    paddingVertical: 40,
   },
   textH: {
     fontSize: 40,
