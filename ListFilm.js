@@ -33,12 +33,17 @@ export default class ListFilm extends Component {
 		this.setState({renderFicheFilm : true})
 		this.setState({index : event})
 	}
+	handleSubmit = () => {
+		this.setState({listFilm:true})
+	}
 	render(){
 		if(this.state.list === null)
 			return <Text>loading...</Text>
 		//console.log("resp", this.state.list[0].title)
 		if(this.state.renderApp === true)
 			return <App />
+		if(this.state.listFilm === true)
+			return <ListFilm />
 		if(this.state.renderFicheFilm === true && this.state.index !== null)
 			return <FicheFilm filmId={this.state.list[this.state.index].id}/>
 		return(
@@ -56,6 +61,7 @@ export default class ListFilm extends Component {
 										source={{uri: `https://image.tmdb.org/t/p/w600_and_h900_bestv2${element.poster_path}`}}
 									/>
 								</TouchableHighlight>
+								<Button title="ENCORE ET ENCORE PLUS DE FILMS DE MERDE" onPress={() => this.handleSubmit()} />
 							</View>
 					)}
 					</View>

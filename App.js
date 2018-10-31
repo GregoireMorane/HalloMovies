@@ -28,6 +28,7 @@ export default class App extends React.Component {
         <Image style={{height: 240, width: 300}} source={require('./Toile_d_araignée.png')} />
           <View style={styles.container}>
             <Image style={{height: 240, width: 300}} source={require('./logo_hackaton.png')} />
+<<<<<<< HEAD
             <TouchableOpacity onPress={() => this.handleSubmit()}
                 style ={{
                     height: 90,
@@ -42,6 +43,9 @@ export default class App extends React.Component {
               Go 
               </Text>
            </TouchableOpacity>
+=======
+            <Button title="FILMS DE MERDE EN APPROCHE !" onPress={() => this.handleSubmit()} />
+>>>>>>> cad4904f3f8b14974d728c4d91eb9056475e2a3d
           </View>
           
       </ScrollView>
