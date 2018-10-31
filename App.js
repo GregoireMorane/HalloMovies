@@ -4,6 +4,7 @@ import { StyleSheet,
   View,
   Button,
   TextInput,
+  TouchableOpacity,
   ScrollView,
   Image
 } from 'react-native';
@@ -24,35 +25,42 @@ export default class App extends React.Component {
       return <ListFilm />
     return (
       <ScrollView contentContainerStyle={styles.contentContainer}>
+        <Image style={{height: 240, width: 300}} source={require('./Toile_d_araignée.png')} />
           <View style={styles.container}>
             <Image style={{height: 240, width: 300}} source={require('./logo_hackaton.png')} />
-            <Button title="Go !" onPress={() => this.handleSubmit()} />
+            <TouchableOpacity onPress={() => this.handleSubmit()}
+                style ={{
+                    height: 90,
+                    width:90,
+                    marginLeft :50,
+                    marginRight:50,
+                    marginTop :20,
+                    backgroundColor:'#DF6D14',
+                    borderRadius: 100
+                }}>
+            <Text style={{color:'white',marginRight:'auto',marginLeft:'auto',marginTop:'auto',marginBottom:'auto',fontSize:30}}>
+              Go 
+              </Text>
+           </TouchableOpacity>
           </View>
+          
       </ScrollView>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  
   container: {
     flex: 1,
-    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
   },
-  button: {
-    backgroundColor: '#DDDDDD',
-    padding: 10,
-  },
-  searchbar: {
-    padding: 20,
-    //backgroundColor: '#3399FF',
-    width: 300,
-    textAlign: "center",
-  },
+ 
+  
 	contentContainer: {
-    // flex: 1,
-    paddingVertical: 150,
+    backgroundColor: '#000',
+    paddingVertical: 50,
     alignItems: 'center',
     justifyContent: 'center',
   },
