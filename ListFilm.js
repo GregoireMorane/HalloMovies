@@ -61,7 +61,7 @@ export default class ListFilm extends Component {
 										source={{uri: `https://image.tmdb.org/t/p/w600_and_h900_bestv2${element.poster_path}`}}
 									/>
 								</TouchableHighlight>
-								<Button  title="ENCORE ET ENCORE PLUS DE FILMS DE MERDE" onPress={() => this.handleSubmit()} />
+								<Button style={styles.textButton} title="CLIQUE ICI POUR + DE FILMS DE MERDE" onPress={() => this.handleSubmit()} />
 							</View>
 					)}
 					</View>
@@ -74,7 +74,7 @@ export default class ListFilm extends Component {
 const styles = StyleSheet.create({
 	container: {
 	  flex: 1,
-	  backgroundColor: '#fff',
+	  backgroundColor: 'black',
 	  alignItems: 'center',
 	  justifyContent: 'center',
 	},
@@ -92,10 +92,16 @@ const styles = StyleSheet.create({
 		paddingVertical: 20,
 	},
 	textH: {
+	  color:'orangered',
 	  fontSize: 40,
 	  fontWeight: 'bold',
 	},
+	textButton: {
+		color: 'white',
+		paddingHorizontal:20
+	},
 	textTitleFilm: {
+		color:'orangered',
 		paddingVertical: 20,
 		fontSize: 20,
 		fontWeight: 'bold',

@@ -48,8 +48,8 @@ export default class FicheFilm extends Component {
 						style={{width: 150, height: 220}}
 						source={{uri: `https://image.tmdb.org/t/p/w600_and_h900_bestv2${this.state.film.poster_path}`}}
 					/>
-					<Text style={{paddingTop: 5}}>Original Title : {this.state.film.original_title}</Text>
-					<Text style={{paddingTop: 10}}>Release Date : {this.state.film.release_date}</Text>
+					<Text style={{color:'white', paddingTop: 5}}>Original Title : {this.state.film.original_title}</Text>
+					<Text style={{color:'white', paddingTop: 10}}>Release Date : {this.state.film.release_date}</Text>
 				</View>
 				<View style={styles.container} >
 					<Text style={styles.overview}>{this.state.film.overview}</Text>

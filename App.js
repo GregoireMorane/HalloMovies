@@ -35,32 +35,30 @@ export default class App extends React.Component {
                     marginLeft :50,
                     marginRight:50,
                     marginTop :20,
-                    backgroundColor:'#DF6D14',
+                    backgroundColor:'orangered',
                     borderRadius: 100
                 }}>
-            <Text style={{color:'white',marginRight:'auto',marginLeft:'auto',marginTop:'auto',marginBottom:'auto',fontSize:15}}>
-            FILMS DE MERDE EN APPROCHE !
+            <Text style={{color:'white',marginRight:'auto',marginLeft:'auto',marginTop:'auto',marginBottom:'auto',fontSize:20}}>
+            Vas y clique, tu verras ...
               </Text>
            </TouchableOpacity>
           </View>
-          
+
       </ScrollView>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  
   container: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
   },
- 
-  
+
 	contentContainer: {
     backgroundColor: '#000',
-    paddingVertical: 50,
+    paddingVertical: 107,
     alignItems: 'center',
     justifyContent: 'center',
   },
